@@ -1,10 +1,10 @@
 {
     "version": 2,
     "builds": [
-      { "src": "./dist/app.ts", "use": "@now/node" }
+      { "src": "./dist/app.js", "use": "@now/node" }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "/dist/app.ts" }
+      { "src": "/(.*)", "dest": "/dist/app.js" }
     ]
   }
   
