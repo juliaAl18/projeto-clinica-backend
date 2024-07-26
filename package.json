@@ -5,6 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "npx nodemon src/app.js",
+    "start": "node src/app.js",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -30,5 +32,9 @@
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "twilio": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "typescript": "^5.5.4"
   }
 }
