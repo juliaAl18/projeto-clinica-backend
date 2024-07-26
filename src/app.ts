@@ -483,7 +483,7 @@ function enviarEmailsPromocionais() {
       return;
     }
 
-    results.forEach((row) => {
+    results.forEach((row: { email: any; }) => {
       const mailOptions = {
         from: 'dentlifeclinicaodonto@gmail.com',
         to: row.email,
@@ -497,7 +497,7 @@ function enviarEmailsPromocionais() {
         Atenciosamente,DentalLife Clinica Odontologica`
       };
 
-      transporter.sendMail(mailOptions, (error, info) => {
+      transporter.sendMail(mailOptions, (error: any, info: any) => {
         if (error) {
           console.error('Erro ao enviar e-mail:', error);
         } else {
@@ -518,7 +518,7 @@ cron.schedule('0 8 * * *', () => {
   enviarEmailsPromocionais();
 });
 
-function sendConfirmationEmail(paciente) {
+function sendConfirmationEmail(paciente: { email: any; nome: any; }) {
   const mailOptions = {
     from: 'dentlifeclinicaodonto@gmail.com',
     to: paciente.email,
@@ -542,7 +542,7 @@ function sendConfirmationEmail(paciente) {
   Equipe da DentalLife`
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
+  transporter.sendMail(mailOptions, (error: any, info: { response: any; }) => {
     if (error) {
       console.error('Erro ao enviar e-mail:', error);
     } else {
@@ -599,7 +599,7 @@ app.get('/api/horarios-disponiveis', (req, res) => {
       if (error) {
         res.status(500).json({ error: 'Erro ao consultar horários disponíveis' });
       } else {
-        const horariosAgendados = results.map(result => result.hora);
+        const horariosAgendados = results.map((result: { hora: any; }) => result.hora);
         const todosHorarios = [
           '09:00', '10:00', '11:00', '12:00', '13:00',
           '14:00', '15:00', '16:00', '17:00'
